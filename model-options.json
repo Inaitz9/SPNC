@@ -1,0 +1,1210 @@
+{
+  "GT/XT 2260": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF",
+      "391-BL"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 2280": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF",
+      "391-BL"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 1240": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 1260": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF",
+      "391-BL"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 1280": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF",
+      "391-BL"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 318-GL": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K"
+    ],
+    "volumes": [
+      "1L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 6160-XTS": {
+    "chipTypes": [
+      "262-GW"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM"
+    ],
+    "volumes": [
+      "3L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 6170-XTS": {
+    "chipTypes": [
+      "262-GW"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "LC",
+      "LM"
+    ],
+    "volumes": [
+      "3L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 640": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 660": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 680": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 440": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 460": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 480": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 360": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 365": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 550": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 350": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GT/XT 250": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "ACUITY-SELECT-HS-34": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-SELECT-HS-36": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-F66": {
+    "chipTypes": [
+      "WI"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM"
+    ],
+    "volumes": [
+      "3L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-SELECT-HS-38": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV",
+      "KN"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-SELECT-24": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-SELECT-26/26L": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV",
+      "KN"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-SELECT-28": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV",
+      "KN"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-15": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV",
+      "KN"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-F67": {
+    "chipTypes": [
+      "WI"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "3L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-ADVANCE-SELECT-HS-4C/X2": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-ADVANCE-SELECT-HS-6C/X2": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV",
+      "KN"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-ADVANCE-SELECT-HS-8C/X2": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV",
+      "KN"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-ADVANCE-SELECT-6CHANNEL/X2": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV",
+      "KN"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-ADVANCE-SELECT-8CHANNEL/X2": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV",
+      "KN"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "V"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-ADVANCE LT": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-EY": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-ADVANCE HS/X2": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-ADVANCE/X2": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "ACUITY-HD-2504": {
+    "chipTypes": [
+      "KO",
+      "KI",
+      "KA",
+      "KV"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "fuji"
+  },
+  "GT/XT 2240": {
+    "chipTypes": [
+      "255-OD",
+      "256-WT",
+      "257-BL",
+      "258-GF"
+    ],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K"
+    ],
+    "volumes": [
+      "1L",
+      "2L"
+    ],
+    "brand": "canon"
+  },
+  "GS3250R": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "H5": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "GS2000-PRO": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "LX3-PRO": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "GS3250LX-PRO": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "GS2000LX-PRO": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "HS100-PRO": {
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W",
+      "Clear",
+      "LC",
+      "LM"
+    ],
+    "volumes": [
+      "10L"
+    ],
+    "brand": "efi"
+  },
+  "QS3-PRO": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "H1625-LED": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W"
+    ],
+    "brand": "efi"
+  },
+  "GS3LX-PRO": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "GS3250-PRO": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "GS2000LX-ULTRADROP": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "H2000-PRO": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "H3": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "GS3200": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "GS3250LX-ULTRADROP": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "GS5250LXR-PRO": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "H3225-LED": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "W"
+    ],
+    "brand": "efi"
+  },
+  "GS5000R": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "GS3250LXR-PRO": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "HS125-PRO": {
+    "volumes": [
+      "10L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "GS5500LXR-ULTRADROP": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  },
+  "HSR-PRO": {
+    "volumes": [
+      "5L"
+    ],
+    "chipTypes": [],
+    "colors": [
+      "C",
+      "M",
+      "Y",
+      "K",
+      "LC",
+      "LM",
+      "LY",
+      "LK",
+      "W",
+      "Clear"
+    ],
+    "brand": "efi"
+  }
+}

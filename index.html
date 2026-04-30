@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPNC Systems — Сервиз и продажба на принтери</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .hero-bg {
+      background:
+        linear-gradient(135deg, rgba(8,145,178,0.18) 0%, rgba(255,255,255,0.82) 60%, rgba(8,145,178,0.10) 100%),
+        url('https://images.unsplash.com/photo-1563770660941-20978e870e26?q=80&w=2070') center/cover no-repeat;
+    }
+    .cmyk-cyan { color: #00aaff; }
+    .dropdown-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .dropdown-toggle::after {
+      content: "▼";
+      font-size: 0.7rem;
+      line-height: 1;
+      color: currentColor;
+      display: inline-block;
+      margin-left: 0.15rem;
+    }
+    .card-hover {
+      transition: transform .25s ease, box-shadow .25s ease;
+      transform: translateZ(0);
+    }
+    .card-hover:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 25px 45px rgba(15, 23, 42, 0.08);
+    }
+    .card-hover img {
+      transition: transform .3s ease;
+    }
+    .card-hover:hover img {
+      transform: scale(1.04);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* SVG wave dividers */
+    .wave-divider {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .wave-divider svg {
+      display: block;
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="bg-white text-zinc-800 font-sans">
+
+  <!-- HEADER -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="text-3xl font-bold tracking-tighter hover:text-cyan-600 transition">
+          SPNC <span class="cmyk-cyan">Systems</span>
+        </a>
+      </div>
+
+      <nav class="hidden md:flex gap-8 text-sm uppercase tracking-widest font-medium">
+        <a href="#uslugi" class="nav-link hover:text-cyan-600 transition" data-key="nav_services">Услуги</a>
+
+        <div class="relative group">
+          <a href="javascript:void(0)" class="nav-link dropdown-toggle hover:text-cyan-600 transition"><span data-key="nav_machines">Машини</span></a>
+          <div class="absolute left-0 top-full mt-0 w-[34rem] rounded-3xl bg-white border border-gray-200 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 z-50">
+            <div class="grid grid-cols-2 gap-3 p-4">
+              <a href="printers.html" class="card-hover group overflow-hidden rounded-3xl border border-gray-200 bg-zinc-100 transition hover:border-cyan-300 hover:shadow-lg">
+                <div class="relative h-44 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200" alt="Arizona" class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 text-white">
+                    <p class="text-sm uppercase tracking-[0.2em]">Machine</p>
+                    <h3 class="text-xl font-semibold">Arizona</h3>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <p class="text-sm text-zinc-600">Click to browse Arizona machines and consumables.</p>
+                </div>
+              </a>
+              <a href="cutters.html" class="card-hover group overflow-hidden rounded-3xl border border-gray-200 bg-zinc-100 transition hover:border-cyan-300 hover:shadow-lg">
+                <div class="relative h-44 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200" alt="HP" class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 text-white">
+                    <p class="text-sm uppercase tracking-[0.2em]">Machine</p>
+                    <h3 class="text-xl font-semibold">HP</h3>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <p class="text-sm text-zinc-600">Click to browse HP machines and consumables.</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <a href="javascript:void(0)" class="nav-link dropdown-toggle hover:text-cyan-600 transition"><span data-key="nav_toner">Консумативи</span></a>
+          <div class="absolute left-0 top-full mt-0 w-[34rem] rounded-3xl bg-white border border-gray-200 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 z-50">
+            <div class="grid grid-cols-2 gap-3 p-4">
+              <a href="fluids.html" class="card-hover group overflow-hidden rounded-3xl border border-gray-200 bg-zinc-100 transition hover:border-cyan-300 hover:shadow-lg">
+                <div class="relative h-44 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1581091870622-9b4e680a7403?q=80&w=1200" alt="Isopropyl" class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 text-white">
+                    <p class="text-sm uppercase tracking-[0.2em]">Consumable</p>
+                    <h3 class="text-xl font-semibold">Isopropyl</h3>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <p class="text-sm text-zinc-600">Click to browse Isopropyl cleaning consumables.</p>
+                </div>
+              </a>
+              <a href="consumables.html" class="card-hover group overflow-hidden rounded-3xl border border-gray-200 bg-zinc-100 transition hover:border-cyan-300 hover:shadow-lg">
+                <div class="relative h-44 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200" alt="Flint" class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 text-white">
+                    <p class="text-sm uppercase tracking-[0.2em]">Consumable</p>
+                    <h3 class="text-xl font-semibold">Flint</h3>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <p class="text-sm text-zinc-600">Click to browse Flint printer consumables.</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <a href="javascript:void(0)" class="nav-link dropdown-toggle hover:text-cyan-600 transition"><span data-key="nav_chips">Чипове</span></a>
+          <div class="absolute left-0 top-full mt-0 w-[52rem] rounded-3xl bg-white border border-gray-200 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 z-50">
+            <div class="grid grid-cols-3 gap-3 p-4">
+              <a href="canon.html" class="card-hover group overflow-hidden rounded-3xl border border-gray-200 bg-zinc-100 transition hover:border-cyan-300 hover:shadow-lg">
+                <div class="relative h-44 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200" alt="Canon" class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 text-white">
+                    <p class="text-sm uppercase tracking-[0.2em]">Chips</p>
+                    <h3 class="text-xl font-semibold">Canon</h3>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <p class="text-sm text-zinc-600">Ink Chips for Canon/OCE UV Printers.</p>
+                </div>
+              </a>
+              <a href="fuji.html" class="card-hover group overflow-hidden rounded-3xl border border-gray-200 bg-zinc-100 transition hover:border-cyan-300 hover:shadow-lg">
+                <div class="relative h-44 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200" alt="Fuji" class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 text-white">
+                    <p class="text-sm uppercase tracking-[0.2em]">Chips</p>
+                    <h3 class="text-xl font-semibold">FujiFilm</h3>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <p class="text-sm text-zinc-600">Ink Chips for FujiFilm UV Flatbed.</p>
+                </div>
+              </a>
+              <a href="efi.html" class="card-hover group overflow-hidden rounded-3xl border border-gray-200 bg-zinc-100 transition hover:border-cyan-300 hover:shadow-lg">
+                <div class="relative h-44 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?q=80&w=1200" alt="EFI" class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 text-white">
+                    <p class="text-sm uppercase tracking-[0.2em]">Chips</p>
+                    <h3 class="text-xl font-semibold">EFI Vutek</h3>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <p class="text-sm text-zinc-600">Ink Chips for EFI Vutek UV printers.</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="#about" class="nav-link hover:text-cyan-600 transition" data-key="nav_about">За нас</a>
+        <a href="#kontakti" class="nav-link hover:text-cyan-600 transition" data-key="nav_contact">Контакти</a>
+      </nav>
+
+      <div class="flex items-center gap-6">
+        <!-- Кошница -->
+        <button onclick="toggleCart()" class="relative flex items-center gap-2 hover:text-cyan-600 transition">
+          <i class="fas fa-shopping-cart text-2xl"></i>
+          <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
+        </button>
+
+        <!-- Език -->
+        <button onclick="toggleLanguage()" id="lang-btn"
+                class="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-full hover:bg-gray-100 transition font-medium">
+          <span id="lang-text">EN</span>
+        </button>
+
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-11 h-11 border border-gray-300 rounded-full hover:bg-gray-100 transition">
+          <i class="fas fa-bars text-lg text-zinc-700"></i>
+        </button>
+
+        <a href="tel:+359XXXXXXXX" class="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 rounded-full font-medium transition flex items-center gap-2">
+          <i class="fas fa-phone"></i> <span data-key="call_now">Обадете се</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-nav" class="md:hidden hidden bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 space-y-2">
+      <a href="#uslugi" class="block text-sm uppercase tracking-widest font-medium text-zinc-800 hover:text-cyan-600 transition" data-key="nav_services">Услуги</a>
+
+      <div>
+        <button type="button" onclick="toggleMobileDropdown('mobile-machines')" class="w-full flex items-center justify-between text-sm uppercase tracking-widest font-medium text-zinc-800 hover:text-cyan-600 transition py-3">
+          <span data-key="nav_machines">Машини</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div id="mobile-machines" class="hidden space-y-2 px-4 pb-3">
+          <a href="printers.html" class="block text-sm text-zinc-700 rounded-3xl px-4 py-3 hover:bg-zinc-100 transition">Arizona</a>
+          <a href="cutters.html" class="block text-sm text-zinc-700 rounded-3xl px-4 py-3 hover:bg-zinc-100 transition">HP</a>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" onclick="toggleMobileDropdown('mobile-toner')" class="w-full flex items-center justify-between text-sm uppercase tracking-widest font-medium text-zinc-800 hover:text-cyan-600 transition py-3">
+          <span data-key="nav_toner">Консумативи</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div id="mobile-toner" class="hidden space-y-2 px-4 pb-3">
+          <a href="fluids.html" class="block text-sm text-zinc-700 rounded-3xl px-4 py-3 hover:bg-zinc-100 transition">Isopropyl</a>
+          <a href="consumables.html" class="block text-sm text-zinc-700 rounded-3xl px-4 py-3 hover:bg-zinc-100 transition">Flint</a>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" onclick="toggleMobileDropdown('mobile-chips')" class="w-full flex items-center justify-between text-sm uppercase tracking-widest font-medium text-zinc-800 hover:text-cyan-600 transition py-3">
+          <span data-key="nav_chips">Чипове</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div id="mobile-chips" class="hidden space-y-2 px-4 pb-3">
+          <a href="canon.html" class="block text-sm text-zinc-700 rounded-3xl px-4 py-3 hover:bg-zinc-100 transition">Canon</a>
+          <a href="fuji.html" class="block text-sm text-zinc-700 rounded-3xl px-4 py-3 hover:bg-zinc-100 transition">Fuji</a>
+          <a href="efi.html" class="block text-sm text-zinc-700 rounded-3xl px-4 py-3 hover:bg-zinc-100 transition">EFI Vutek</a>
+        </div>
+      </div>
+
+      <a href="#about" class="block text-sm uppercase tracking-widest font-medium text-zinc-800 hover:text-cyan-600 transition" data-key="nav_about">За нас</a>
+      <a href="#kontakti" class="block text-sm uppercase tracking-widest font-medium text-zinc-800 hover:text-cyan-600 transition" data-key="nav_contact">Контакти</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero-bg h-screen flex items-center">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 id="hero-title" class="text-5xl md:text-7xl font-bold leading-tight mb-6 text-zinc-900" data-key="hero_title">
+        Професионален сервиз<br>на принтери в цяла България и чужбина
+      </h1>
+      <p id="hero-subtitle" class="text-xl md:text-2xl text-zinc-600 mb-10 max-w-2xl mx-auto" data-key="hero_subtitle">
+        Бърз ремонт • Профилактика • Калибриране • Инсталация • Консумативи
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#uslugi" class="bg-cyan-600 hover:bg-cyan-700 text-white font-semibold px-10 py-5 rounded-full text-lg transition" data-key="btn_services">Виж услугите</a>
+        <a href="#kontakti" class="border-2 border-cyan-600 text-cyan-600 hover:bg-cyan-50 font-semibold px-10 py-5 rounded-full text-lg transition" data-key="btn_book">Запази час</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave: hero → услуги -->
+  <div class="wave-divider bg-white">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#f4f4f5"/>
+    </svg>
+  </div>
+
+  <!-- УСЛУГИ -->
+  <section id="uslugi" class="py-10 bg-zinc-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-4 text-zinc-900 reveal" data-key="services_title">Нашите услуги</h2>
+      <div class="grid gap-4 place-items-center mb-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-5xl">
+          <div class="space-y-4">
+            <img src="https://respiratory-therapy.com/wp-content/uploads/2014/07/fist-bump-2k-1280x640.jpg"
+                 alt="Team bumping fists"
+                 class="w-full h-72 object-cover rounded-3xl shadow-lg" />
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-200 text-center">
+              <h3 class="text-2xl font-bold mt-2">Partner & Products</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+                <a href="https://www.barbierielectronic.com" target="_blank" class="group rounded-3xl border border-gray-200 bg-zinc-50 p-4 text-sm text-zinc-700 hover:bg-cyan-50 transition">
+                  <div class="flex items-center justify-center mb-3 h-12 w-12 mx-auto rounded-full bg-white overflow-hidden">
+                    <img src="data:image/png;base64,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" alt="Barbierie logo" class="h-full w-full object-contain" />
+                  </div>
+                  <div class="text-center">barbierielectronic.com</div>
+                </a>
+                <a href="https://www.caldera.com" target="_blank" class="group rounded-3xl border border-gray-200 bg-zinc-50 p-4 text-sm text-zinc-700 hover:bg-cyan-50 transition">
+                  <div class="flex items-center justify-center mb-3 h-12 w-12 mx-auto rounded-full bg-white overflow-hidden">
+                    <img src="https://lkc.hp.com/storage/app/uploads/public/5e9/fee/40d/5e9fee40d2fdc045800171.png" alt="Caldera logo" class="h-full w-full object-contain" />
+                  </div>
+                  <div class="text-center">caldera.com</div>
+                </a>
+                <a href="https://www.onyxgfx.com" target="_blank" class="group rounded-3xl border border-gray-200 bg-zinc-50 p-4 text-sm text-zinc-700 hover:bg-cyan-50 transition">
+                  <div class="flex items-center justify-center mb-3 h-12 w-12 mx-auto rounded-full bg-white overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCA6bFOGcZHGwGunRGNArI9JvQZlDtwJDERg&s" alt="Onyx logo" class="h-full w-full object-contain" />
+                  </div>
+                  <div class="text-center">onyxgfx.com</div>
+                </a>
+                <a href="https://www.xrite.com" target="_blank" class="group rounded-3xl border border-gray-200 bg-zinc-50 p-4 text-sm text-zinc-700 hover:bg-cyan-50 transition">
+                  <div class="flex items-center justify-center mb-3 h-12 w-12 mx-auto rounded-full bg-white overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw5Jhut35Tuf1stB-71Rx8TGotpivuxKVZkA&s" alt="Xrite logo" class="h-full w-full object-contain" />
+                  </div>
+                  <div class="text-center">xrite.com</div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <img src="https://www.perfectcolours.com/assets/image-cache/images/uploads/2019/9/2721/57-2721.Drytac-ICC-Profiles-jpg-1024x678.4380c2a1.jpg"
+                 alt="Color profile illustration"
+                 class="w-full h-72 object-cover rounded-3xl shadow-lg" />
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-200">
+              <div class="max-w-4xl mx-auto">
+                <div class="flex items-center justify-center mb-4 gap-4">
+                  <div class="h-px w-16 bg-zinc-200"></div>
+                  <p class="text-xs uppercase tracking-[0.22em] text-cyan-600 font-semibold inline-block">Support / Consultancy</p>
+                  <div class="h-px flex-1 bg-zinc-200"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-zinc-700">
+                  <div>
+                    <p class="mb-3 uppercase tracking-[0.12em] text-zinc-900 font-semibold pl-4">
+  Software
+</p>
+                    <div class="overflow-hidden rounded-3xl border border-zinc-300 bg-white shadow-sm">
+                      <ul class="text-sm text-zinc-700" id="software-list">
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3">SAI FLEXI 25.3</li>
+                        <li class="border-b border-zinc-300 px-4 py-3">SAI FLEXI 24.1</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3">SAI FLEXI 22</li>
+                        <li class="border-b border-zinc-300 px-4 py-3">SAI ENROUTE 24.2</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3">NEO STAMPA 25.1</li>
+                        <li class="border-b border-zinc-300 px-4 py-3">NEO STAMPA 24.8</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3">OPTITEX 2025</li>
+                        <li class="border-b border-zinc-300 px-4 py-3">SIGN MASTER V5 PRO</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3 software-hidden hidden">WILCOM E4.2 (Windows 10 / Windows 11)</li>
+                        <li class="border-b border-zinc-300 px-4 py-3 software-hidden hidden">VETRIC VCARVE PRO</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3 software-hidden hidden">VETRIC ASPIRE 12.5</li>
+                        <li class="border-b border-zinc-300 px-4 py-3 software-hidden hidden">WASATCH 8</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3 software-hidden hidden">WASATCH 7.4</li>
+                        <li class="border-b border-zinc-300 px-4 py-3 software-hidden hidden">ONYX 21</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3 software-hidden hidden">E-CUT 7.4.8</li>
+                        <li class="border-b border-zinc-300 px-4 py-3 software-hidden hidden">CADLINK SIGNLAB PRINT & CUT</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3 software-hidden hidden">CADLINK DTF V11</li>
+                        <li class="border-b border-zinc-300 px-4 py-3 software-hidden hidden">CADLINK UV VERSION</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3 software-hidden hidden">CADLINK SUBLIMATION</li>
+                        <li class="border-b border-zinc-300 px-4 py-3 software-hidden hidden">CADLINK OKI PRO</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3 software-hidden hidden">ACRORIP 11.2</li>
+                        <li class="border-b border-zinc-300 px-4 py-3 software-hidden hidden">ACRORIP 10.5.2</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3 software-hidden hidden">TOPAZ GIGAPIXEL AI 8.2.3</li>
+                        <li class="border-b border-zinc-300 px-4 py-3 software-hidden hidden">COREL DRAW 2025</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3 software-hidden hidden">ADOBE ACROBAT PRO 2025</li>
+                        <li class="border-b border-zinc-300 px-4 py-3 software-hidden hidden">+ zund cut center 2.7</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3 software-hidden hidden">ADOBE ILLUSTRATOR 2025</li>
+                        <li class="border-b border-zinc-300 px-4 py-3 software-hidden hidden">ADOBE PHOTOSHOP 2025</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3 software-hidden hidden">ADOBE IN DESIGN 2025</li>
+                        <li class="border-b border-zinc-300 px-4 py-3 software-hidden hidden">VECTOR MAGIC</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3 software-hidden hidden">MICROSOFT OFFICE</li>
+                        <li class="px-4 py-3 software-hidden hidden">VINYL MASTER</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="mb-3 uppercase tracking-[0.12em] text-zinc-900 font-semibold pl-4">
+  Hardware
+</p>
+                    <div class="overflow-hidden rounded-3xl border border-zinc-300 bg-white shadow-sm">
+                      <ul class="text-sm text-zinc-700" id="hardware-list">
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3">AGFA</li>
+                        <li class="border-b border-zinc-300 px-4 py-3">Canon OCE</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3">Dgen</li>
+                        <li class="border-b border-zinc-300 px-4 py-3">Durst</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3">EFI</li>
+                        <li class="border-b border-zinc-300 px-4 py-3">Epson</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3 hardware-hidden hidden">HP</li>
+                        <li class="border-b border-zinc-300 px-4 py-3 hardware-hidden hidden">Mimaki</li>
+                        <li class="border-b border-zinc-300 bg-zinc-50 px-4 py-3 hardware-hidden hidden">MS Printing Solutions</li>
+                        <li class="border-b border-zinc-300 px-4 py-3 hardware-hidden hidden">PrinterEvolution</li>
+                        <li class="px-4 py-3 hardware-hidden hidden">Reggiani</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-4 flex flex-wrap gap-4 justify-center">
+                  <button id="software-toggle" data-expanded="false" onclick="toggleList('software')" class="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 shadow-sm hover:border-zinc-300 hover:bg-zinc-50 transition">Покажи още</button>
+                  <button id="hardware-toggle" data-expanded="false" onclick="toggleList('hardware')" class="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 shadow-sm hover:border-zinc-300 hover:bg-zinc-50 transition">Покажи още</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div class="bg-white p-8 rounded-3xl shadow hover:shadow-xl transition card-hover reveal reveal-delay-1">
+          <i class="fas fa-plug text-5xl cmyk-cyan mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3" data-key="service1_title">Инсталация</h3>
+          <p class="text-zinc-600" data-key="service1_desc">Пълни инсталации на принтери, системи и оборудване.</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow hover:shadow-xl transition card-hover reveal reveal-delay-2">
+          <i class="fas fa-wrench text-5xl cmyk-magenta mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3" data-key="service2_title">Сервиз</h3>
+          <p class="text-zinc-600" data-key="service2_desc">Бърз сервиз и ремонт на принтери, мастилото и техническо оборудване.</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow hover:shadow-xl transition card-hover reveal reveal-delay-3">
+          <i class="fas fa-comments text-5xl text-amber-500 mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3" data-key="service3_title">Консултация</h3>
+          <p class="text-zinc-600" data-key="service3_desc">Професионални консултации за избор на най-доброто решение.</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow hover:shadow-xl transition card-hover reveal reveal-delay-4">
+          <i class="fas fa-sliders-h text-5xl text-emerald-500 mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3" data-key="service4_title">Профилиране</h3>
+          <p class="text-zinc-600" data-key="service4_desc">Цветово профилиране и калибриране за прецизно качество.</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow hover:shadow-xl transition card-hover reveal reveal-delay-1">
+          <i class="fas fa-tint text-5xl text-cyan-600 mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3" data-key="service5_title">Смяна мастила</h3>
+          <p class="text-zinc-600" data-key="service5_desc">Смяна и зареждане на мастила за всички видове принтери.</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow hover:shadow-xl transition card-hover reveal reveal-delay-2">
+          <i class="fas fa-fill-drip text-5xl text-fuchsia-500 mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3" data-key="service6_title">Bulk системи</h3>
+          <p class="text-zinc-600" data-key="service6_desc">Проектиране и монтаж на bulk мастилни системи.</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow hover:shadow-xl transition card-hover reveal reveal-delay-3">
+          <i class="fas fa-sun text-5xl text-yellow-500 mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3" data-key="service7_title">Изграждане на соларни системи</h3>
+          <p class="text-zinc-600" data-key="service7_desc">Соларни решения за енергийна ефективност и устойчивост.</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow hover:shadow-xl transition card-hover reveal reveal-delay-4">
+          <i class="fas fa-fan text-5xl text-sky-500 mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3" data-key="service8_title">Вентилации</h3>
+          <p class="text-zinc-600" data-key="service8_desc">Инсталиране и поддръжка на системи за вентилация.</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow hover:shadow-xl transition card-hover reveal reveal-delay-1">
+          <i class="fas fa-lightbulb text-5xl text-amber-500 mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3" data-key="service9_title">Професионално осветление</h3>
+          <p class="text-zinc-600" data-key="service9_desc">Дизайн и монтаж на професионално осветление за бизнес пространства.</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow hover:shadow-xl transition card-hover reveal reveal-delay-2">
+          <i class="fas fa-bolt text-5xl text-yellow-600 mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3" data-key="service10_title">Ел инсталации</h3>
+          <p class="text-zinc-600" data-key="service10_desc">Електроинсталации и обслужване за различни видове обекти.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Wave: услуги → за нас -->
+  <div class="wave-divider bg-white">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C360,0 720,80 1080,40 C1260,20 1380,60 1440,40 L1440,80 L0,80 Z" fill="#f4f4f5"/>
+    </svg>
+  </div>
+
+  <!-- ЗА НАС -->
+  <section id="about" class="py-24 bg-zinc-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-4xl font-bold mb-6 reveal" data-key="about_title">За SPNC Systems</h2>
+          <p class="text-zinc-700 text-lg" data-key="about_desc">Ес Пи Ен Си Системс ЕООД – професионален сервиз и търговия с печатно оборудване в България и чужбина.</p>
+          <p class="mt-6 text-zinc-600" data-key="about_details">
+            Управител: Станимир  Иванов<br>
+            Адрес: ул. „Димитър Талев“ 28, ж.к. Средна кула, Русе 7008
+          </p>
+        </div>
+        <div class="bg-white h-[520px] md:h-[560px] rounded-3xl shadow overflow-hidden">
+          <img src="676078310_1006800732010634_6875268228657127196_n.png" alt="SPNC Systems Logo" class="h-full w-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КОНТАКТИ + ФОРМА -->
+  <section id="kontakti" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-4" data-key="contact_title">Свържете се с нас</h2>
+      <p class="text-center text-zinc-600 mb-12" data-key="contact_subtitle">Очакваме вашето обаждане или запитване</p>
+
+      <div class="grid md:grid-cols-2 gap-16">
+        <div>
+          <div class="space-y-8 text-lg">
+            <p><i class="fas fa-map-marker-alt text-cyan-600 mr-4"></i> ул. Димитър Талев 28, ж.к. Средна кула, Русе 7008</p>
+            <p><i class="fas fa-phone text-cyan-600 mr-4"></i> Телефон: +359 883 499 883</p>
+            <p><i class="fas fa-envelope text-cyan-600 mr-4"></i> office@spncsystems.bg</p>
+          </div>
+        </div>
+
+        <div class="bg-zinc-50 p-8 rounded-3xl shadow">
+          <h3 class="text-2xl font-semibold mb-6" data-key="form_title">Изпрати запитване</h3>
+          <form id="contactForm" class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium mb-1" data-key="form_name">Име и фамилия *</label>
+              <input type="text" id="name" required class="w-full px-5 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:border-cyan-500">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium mb-1" data-key="form_phone">Телефон *</label>
+                <input type="tel" id="phone" required class="w-full px-5 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:border-cyan-500">
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-1" data-key="form_email">Имейл</label>
+                <input type="email" id="email" class="w-full px-5 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:border-cyan-500">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1" data-key="form_service">Услуга</label>
+              <select id="service" class="w-full px-5 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:border-cyan-500">
+                <option value="" data-key="form_service_placeholder">Изберете услуга...</option>
+                <option value="repair" data-key="service_repair">Ремонт и сервиз на принтер</option>
+                <option value="maintenance" data-key="service_maintenance">Профилактика и поддръжка</option>
+                <option value="calibration" data-key="service_calibration">Калибриране и цветопрофилиране</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1" data-key="form_message">Опишете проблема</label>
+              <textarea id="message" rows="5" class="w-full px-5 py-3 border border-gray-300 rounded-3xl focus:outline-none focus:border-cyan-500" placeholder="Модел на принтера, какъв е проблемът..."></textarea>
+            </div>
+            <button type="submit" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-4 rounded-2xl transition text-lg" data-key="form_submit">Изпрати заявка</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАРТА НА КОШНИЦАТА -->
+  <div id="cart-modal" class="hidden fixed inset-0 bg-black/70 z-[100] flex items-center justify-center">
+    <div class="bg-white w-full max-w-2xl mx-4 rounded-3xl shadow-2xl max-h-[90vh] overflow-hidden flex flex-col">
+      <div class="p-6 border-b flex justify-between items-center">
+        <h3 class="text-2xl font-bold" data-key="cart_title">Вашата кошница</h3>
+        <button onclick="toggleCart()" class="text-3xl leading-none hover:text-red-500">×</button>
+      </div>
+      
+      <div id="cart-items" class="flex-1 p-6 overflow-auto">
+        <!-- Продуктите се добавят тук -->
+      </div>
+
+      <div class="p-6 border-t">
+        <div class="flex justify-between text-xl font-semibold mb-6">
+          <span data-key="cart_total">Общо:</span>
+          <span id="cart-total">0 лв.</span>
+        </div>
+        <button onclick="checkout()" 
+                class="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-2xl text-lg font-semibold transition" data-key="checkout_btn">
+          Продължи към плащане
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Асистент -->
+  <div onclick="alert('Coming soon!')" 
+       class="fixed bottom-8 right-8 w-16 h-16 bg-gradient-to-br from-cyan-500 to-pink-500 rounded-full flex items-center justify-center shadow-2xl cursor-pointer hover:scale-110 transition z-50">
+    <i class="fas fa-robot text-3xl text-white"></i>
+  </div>
+
+  <footer class="bg-zinc-100 py-12 border-t">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-zinc-500">
+      © 2026 Ес Пи Ен Си Системс ЕООД • Русе, България
+    </div>
+    <div class="max-w-4xl mx-auto px-6 mt-4 text-center text-xs text-zinc-400 leading-relaxed">
+      All product names, logos, and brands are the property of their respective owners. The company, product, and service names mentioned on this website are used solely for identification purposes. Their use does not imply any affiliation with or endorsement by the respective trademark owners.
+    </div>
+  </footer>
+
+  <script>
+    let cart = [];
+    let currentLang = 'bg';
+
+    const translations = {
+      bg: {
+        nav_services: "Услуги", nav_machines: "Машини", nav_toner: "Консумативи", nav_chips: "Чипове", nav_about: "За нас", nav_contact: "Контакти",
+        call_now: "Обадете се",
+        hero_title: "Професионален сервиз<br>на принтери в България и чужбина",
+        hero_subtitle: "Бърз ремонт • Профилактика • Калибриране • Инсталация • Консумативи",
+        btn_services: "Виж услугите", btn_book: "Запази час",
+        services_title: "Нашите услуги",
+        services_subtitle: "Инсталация / Сервиз / Консултация / Профилиране / Смяна мастила / Bulk системи / Изграждане на соларни системи / Вентилации / Професионално осветление / Ел инсталации",
+        service1_title: "Инсталация", service1_desc: "Пълни инсталации на принтери, системи и оборудване.",
+        service2_title: "Сервиз", service2_desc: "Бърз сервиз и ремонт на принтери, мастилото и техническо оборудване.",
+        service3_title: "Консултация", service3_desc: "Професионални консултации за избор на най-доброто решение.",
+        service4_title: "Профилиране", service4_desc: "Цветово профилиране и калибриране за прецизно качество.",
+        service5_title: "Смяна мастила", service5_desc: "Смяна и зареждане на мастила за всички видове принтери.",
+        service6_title: "Bulk системи", service6_desc: "Проектиране и монтаж на bulk мастилни системи.",
+        service7_title: "Изграждане на соларни системи", service7_desc: "Соларни решения за енергийна ефективност и устойчивост.",
+        service8_title: "Вентилации", service8_desc: "Инсталиране и поддръжка на системи за вентилация.",
+        service9_title: "Професионално осветление", service9_desc: "Дизайн и монтаж на професионално осветление за бизнес пространства.",
+        service10_title: "Ел инсталации", service10_desc: "Електроинсталации и обслужване за различни видове обекти.",
+        shop_title: "Магазин", shop_subtitle: "Принтери, консумативи и резервни части",
+        filter_all: "Всички", filter_printers: "Принтери", filter_toner: "Тонер", filter_spnc: "SPNC GROUP",
+        add_to_cart: "Добави в кошница", added: "Добавено ✓",
+        out_of_stock: "Няма на склад", in_stock: "бр.",
+        about_title: "За SPNC Systems",
+        about_desc: "Ес Пи Ен Си Системс ЕООД – професионален сервиз и търговия с печатно оборудване в цяла България и чужбина.",
+        about_details: "Управител: Станимир Иванов<br> <br>Адрес: ул. „Димитър Талев“ 28, ж.к. Средна кула, Русе 7008",
+        contact_title: "Свържете се с нас", contact_subtitle: "Очакваме вашето обаждане или запитване",
+        form_title: "Изпрати запитване", form_name: "Име и фамилия *", form_phone: "Телефон *",
+        form_email: "Имейл", form_service: "Услуга", form_service_placeholder: "Изберете услуга...", form_message: "Опишете проблема",
+        form_submit: "Изпрати заявка", service_repair: "Ремонт и сервиз на принтер",
+        service_maintenance: "Профилактика и поддръжка", service_calibration: "Калибриране и цветопрофилиране",
+        cart_title: "Вашата кошница", cart_total: "Общо:", cart_empty: "Кошницата е празна",
+        checkout_btn: "Продължи към плащане", cart_remove: "Премахни"
+      },
+      en: {
+        nav_services: "Services", nav_machines: "Machines", nav_toner: "Consumables", nav_chips: "Chips", nav_about: "About Us", nav_contact: "Contact",
+        call_now: "Call Now",
+        hero_title: "Professional Printer<br>Service in Bulgaria and Abroad",
+        hero_subtitle: "Fast Repair • Maintenance • Calibration • Installation • Consumables",
+        btn_services: "View Services", btn_book: "Book Appointment",
+        services_title: "Our Services",
+        services_subtitle: "Installation / Service / Consultation / Profiling / Ink Replacement / Bulk Systems / Solar System Installation / Ventilation / Professional Lighting / Electrical Installations",
+        service1_title: "Installation", service1_desc: "Complete installation of printers, systems and equipment.",
+        service2_title: "Service", service2_desc: "Fast service and repair for printers, ink systems, and technical equipment.",
+        service3_title: "Consultation", service3_desc: "Professional consultations to choose the best solution.",
+        service4_title: "Profiling", service4_desc: "Color profiling and calibration for precise quality.",
+        service5_title: "Ink Replacement", service5_desc: "Ink replacement and refill services for all printer types.",
+        service6_title: "Bulk Systems", service6_desc: "Design and installation of bulk ink systems.",
+        service7_title: "Solar System Installation", service7_desc: "Solar solutions for energy efficiency and sustainability.",
+        service8_title: "Ventilation", service8_desc: "Installation and maintenance of ventilation systems.",
+        service9_title: "Professional Lighting", service9_desc: "Design and installation of professional lighting for commercial spaces.",
+        service10_title: "Electrical Installations", service10_desc: "Electrical installations and maintenance for various premises.",
+        shop_title: "Shop", shop_subtitle: "Printers, Consumables & Spare Parts",
+        filter_all: "All", filter_printers: "Printers", filter_toner: "Consumables", filter_spnc: "SPNC GROUP",
+        add_to_cart: "Add to Cart", added: "Added ✓",
+        out_of_stock: "Out of Stock", in_stock: "pcs",
+        about_title: "About SPNC Systems",
+        about_desc: "SPNC Systems Ltd – professional service and trade of printing equipment in Bulgaria and abroad.",
+        about_details: "Manager: Stanimir Ivanov<br><br>Address: 28 Dimitar Talev Str., Sredna Kula, Ruse 7008",
+        contact_title: "Get in Touch", contact_subtitle: "We look forward to your call or inquiry",
+        form_title: "Send Inquiry", form_name: "Full Name *", form_phone: "Phone *",
+        form_email: "Email", form_service: "Service", form_service_placeholder: "Choose a service...", form_message: "Describe the problem",
+        form_submit: "Send Request", service_repair: "Printer Repair & Service",
+        service_maintenance: "Maintenance & Support", service_calibration: "Calibration & Color Profiling",
+        cart_title: "Your Cart", cart_total: "Total:", cart_empty: "Cart is empty",
+        checkout_btn: "Continue to Checkout", cart_remove: "Remove"
+      }
+    };
+
+    function translatePage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (key && translations[lang] && translations[lang][key] !== undefined) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      const langText = document.getElementById('lang-text');
+      if (langText) langText.textContent = lang === 'bg' ? 'EN' : 'BG';
+    }
+
+    function toggleLanguage() {
+      const nextLang = currentLang === 'bg' ? 'en' : 'bg';
+      translatePage(nextLang);
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('mobile-nav').classList.toggle('hidden');
+    }
+
+    function toggleMobileDropdown(id) {
+      const dropdown = document.getElementById(id);
+      if (dropdown) dropdown.classList.toggle('hidden');
+    }
+
+    function toggleList(type) {
+      const hiddenItems = document.querySelectorAll(`.${type}-hidden`);
+      const button = document.getElementById(`${type}-toggle`);
+      const isExpanded = button.getAttribute('data-expanded') === 'true';
+
+      hiddenItems.forEach(item => item.classList.toggle('hidden', isExpanded));
+      button.textContent = isExpanded ? 'Покажи още' : 'Покажи по-малко';
+      button.setAttribute('data-expanded', isExpanded ? 'false' : 'true');
+    }
+
+    // Кошница функции
+    function addToCart(btn) {
+      const card = btn.closest('.product-card');
+      const id = card.dataset.id;
+      const name = card.dataset.name;
+      const price = parseFloat(card.dataset.price);
+
+      const existing = cart.find(item => item.id === id);
+      if (existing) existing.quantity += 1;
+      else cart.push({ id, name, price, quantity: 1 });
+
+      localStorage.setItem('spnc_cart', JSON.stringify(cart));
+      updateCartCount();
+      
+      const original = btn.textContent;
+      btn.textContent = translations[currentLang].added;
+      btn.classList.add('!bg-green-600');
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('!bg-green-600');
+      }, 1500);
+    }
+
+    function updateCartCount() {
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.getElementById('cart-count').textContent = count;
+    }
+
+    function toggleCart() {
+      const modal = document.getElementById('cart-modal');
+      modal.classList.toggle('hidden');
+      renderCart();
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cart-items');
+      container.innerHTML = '';
+      let total = 0;
+
+      if (cart.length === 0) {
+        container.innerHTML = `<p class="text-center text-gray-500 py-12" data-key="cart_empty">${translations[currentLang].cart_empty}</p>`;
+        document.getElementById('cart-total').textContent = '0 лв.';
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        const div = document.createElement('div');
+        div.className = "flex gap-4 border-b pb-6 mb-6 last:border-0 last:mb-0";
+        div.innerHTML = `
+          <div class="flex-1">
+            <h4 class="font-medium">${item.name}</h4>
+            <p class="text-sm text-gray-500">${item.price} лв. × ${item.quantity}</p>
+          </div>
+          <div class="text-right">
+            <p class="font-semibold">${itemTotal} лв.</p>
+            <button onclick="removeFromCart(${index})" class="text-red-500 text-sm mt-2 hover:underline" data-key="cart_remove">${translations[currentLang].cart_remove}</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+
+      document.getElementById('cart-total').textContent = total + ' лв.';
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      localStorage.setItem('spnc_cart', JSON.stringify(cart));
+      updateCartCount();
+      renderCart();
+    }
+
+    function checkout() {
+      if (cart.length === 0) return;
+      // Pass cart via URL param AND localStorage — double safety
+      localStorage.setItem('spnc_cart', JSON.stringify(cart));
+      const encoded = encodeURIComponent(JSON.stringify(cart));
+      window.location.href = 'checkout.html?cart=' + encoded;
+    }
+
+    // Форма
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value;
+
+      try {
+        const response = await fetch('/api/inquiry', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, phone, email, service, message })
+        });
+        const result = await response.json();
+        
+        if (result.success) {
+          alert(currentLang === 'bg' 
+            ? `✅ Заявката е изпратена успешно!\n\nБлагодарим ви, ${name}!` 
+            : `✅ Request sent successfully!\n\nThank you, ${name}!`);
+          this.reset();
+        } else {
+          alert(result.error);
+        }
+      } catch (err) {
+        alert(currentLang === 'bg' ? 'Грешка при изпращане!' : 'Error sending request!');
+      }
+    });
+
+    // Стартиране
+    window.onload = () => {
+      const saved = localStorage.getItem('spnc_cart');
+      if (saved) {
+        try {
+          cart = JSON.parse(saved);
+        } catch (err) {
+          cart = [];
+        }
+      }
+      translatePage('bg');
+      updateCartCount();
+    };
+  </script>
+
+  <script>
+    // Scroll reveal via IntersectionObserver
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>

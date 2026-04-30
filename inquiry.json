@@ -1,0 +1,32 @@
+[
+  {
+    "id": "INQ-1776634728434",
+    "name": "dsad",
+    "phone": "sadsa",
+    "email": "dsad@abv.bg",
+    "service": "repair",
+    "message": "dsadas",
+    "date": "2026-04-19T21:38:48.434Z",
+    "status": "new"
+  },
+  {
+    "id": "INQ-1776635243200",
+    "name": "dsadsa",
+    "phone": "dsadsa",
+    "email": "dsad@abv.bg",
+    "service": "maintenance",
+    "message": "dsadsadas",
+    "date": "2026-04-19T21:47:23.200Z",
+    "status": "cancelled"
+  },
+  {
+    "id": "INQ-1777550541362",
+    "name": "1111111111",
+    "phone": "dsad",
+    "email": "dsadsa@abv.bg",
+    "service": "repair",
+    "message": "111111111",
+    "date": "2026-04-30T12:02:21.362Z",
+    "status": "new"
+  }
+]

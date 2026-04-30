@@ -1,0 +1,77 @@
+[
+  {
+    "id": "31",
+    "name": "GT/XT 2260 – 255-OD – W – 2L",
+    "price": 10,
+    "category": "Чипове",
+    "stock": 50,
+    "description": "Canon/Oce Arizona chip – GT/XT 2260 255-OD W 2L",
+    "icon": "📦",
+    "image": ""
+  },
+  {
+    "id": "32",
+    "name": "GT/XT 2260 – 255-OD – C – 2L",
+    "price": 0,
+    "category": "Чипове",
+    "stock": 1,
+    "description": "Canon/Oce Arizona chip – GT/XT 2260 255-OD C 2L",
+    "icon": "📦",
+    "image": ""
+  },
+  {
+    "id": "36",
+    "name": "Изопропил5",
+    "price": 5,
+    "category": "Isopropyl",
+    "stock": 4,
+    "description": "Комплект Canon за почистване на принтери и сервизна поддръжка.",
+    "icon": "📦",
+    "image": "",
+    "brand": "Isopropyl"
+  },
+  {
+    "id": "37",
+    "name": "Изопропил7",
+    "price": 5,
+    "brand": "Isopropyl",
+    "category": "Isopropyl",
+    "stock": 321,
+    "description": "32",
+    "icon": "📦",
+    "image": ""
+  },
+  {
+    "id": "38",
+    "name": "F1",
+    "price": 23,
+    "brand": "Flint",
+    "category": "Flint",
+    "stock": 4,
+    "description": "dsa",
+    "icon": "📦",
+    "image": ""
+  },
+  {
+    "id": "39",
+    "name": "dasd",
+    "price": 3,
+    "brand": "Arizona",
+    "category": "Arizona",
+    "stock": 4,
+    "description": "55",
+    "icon": "📦",
+    "image": ""
+  },
+  {
+    "id": "40",
+    "name": "dsad",
+    "price": 3213,
+    "brand": "Arizona",
+    "category": "Arizona",
+    "stock": 3213,
+    "description": "321",
+    "icon": "📦",
+    "image": ""
+  }
+]

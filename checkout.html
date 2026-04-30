@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завършване на поръчка</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #fcfcfc; font-family: sans-serif; }
+        .input-field { width: 100%; padding: 15px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 12px; outline: none; margin-bottom: 20px; }
+        .input-field:focus { border-color: #0099bc; }
+        .label-style { font-size: 10px; font-weight: 800; color: #b0b0b0; text-transform: uppercase; margin-bottom: 5px; display: block; }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-10">
+        
+        <div class="flex-1 bg-white p-10 rounded-[40px] shadow-sm border border-gray-50">
+            <h1 class="text-4xl font-black mb-10">Данни за поръчка</h1>
+            <form onsubmit="event.preventDefault(); processOrder(this);">
+                <label class="label-style">Вашето име</label>
+                <input type="text" name="customer-name" class="input-field" placeholder="Иван Иванов" required>
+                
+                <label class="label-style">Телефон за връзка</label>
+                <input type="tel" name="customer-phone" class="input-field" placeholder="+359 8..." required>
+                
+                <label class="label-style">Град и адрес за доставка</label>
+                <input type="text" name="customer-address" class="input-field" placeholder="гр. Русе, ул. ..." required>
+                
+                <label class="label-style">Изберете куриер</label>
+                <select name="customer-courier" class="input-field" required>
+                  <option value="">-- Изберете куриер --</option>
+                  <option value="Econt">Econt</option>
+                  <option value="Speedy">Speedy</option>
+                </select>
+
+                <button type="submit" class="w-full bg-[#0099bc] text-white py-5 rounded-2xl font-bold text-lg mt-4 shadow-lg shadow-cyan-100">Потвърди и поръчай</button>
+            </form>
+        </div>
+
+        <div class="w-full md:w-[400px] bg-[#111] text-white p-10 rounded-[40px] shadow-2xl flex flex-col">
+            <h2 class="text-xl font-bold mb-8">Вашата поръчка</h2>
+            
+            <div id="summary-content" class="flex-1 space-y-6">
+                <p class="text-zinc-500">Зареждане...</p>
+            </div>
+
+            <div id="summary-courier" class="mt-6 text-sm text-zinc-400"></div>
+
+            <div class="mt-10 pt-6 border-t border-zinc-800 flex justify-between items-center">
+                <span class="text-lg font-bold uppercase tracking-widest">Общо:</span>
+                <span id="final-total" class="text-[#00e5ff] text-3xl font-black">0 лв.</span>
+            </div>
+            <p class="text-[10px] text-zinc-500 mt-6 italic">* Плащането се извършва с наложен платеж при доставка чрез Еконт/Спиди.</p>
+        </div>
+
+    </div>
+
+    <script>
+        window.onload = function() {
+            const container = document.getElementById('summary-content');
+            const totalEl = document.getElementById('final-total');
+
+            // Try URL param first (most reliable for local files), then localStorage
+            let cart = null;
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlCart = urlParams.get('cart');
+
+            if (urlCart) {
+                try { cart = JSON.parse(decodeURIComponent(urlCart)); } catch(e) {}
+            }
+
+            if (!cart || cart.length === 0) {
+                try {
+                    const stored = localStorage.getItem('spnc_cart');
+                    if (stored) cart = JSON.parse(stored);
+                } catch(e) {}
+            }
+
+            if (!cart || cart.length === 0) {
+                container.innerHTML = '<p class="text-zinc-500">Няма избрани продукти.</p>';
+                return;
+            }
+
+            let total = 0;
+            container.innerHTML = '';
+
+            cart.forEach(item => {
+                const sub = item.price * item.quantity;
+                total += sub;
+                container.innerHTML += `
+                    <div class="flex justify-between items-center">
+                        <span class="text-zinc-300 font-medium">${item.name} <span class="text-zinc-600 text-sm">x${item.quantity}</span></span>
+                        <span class="font-bold">${sub} лв.</span>
+                    </div>`;
+            });
+
+            totalEl.innerText = total + " лв.";
+        };
+
+        async function processOrder(form) {
+            // Get cart data
+            let cart = null;
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlCart = urlParams.get('cart');
+            if (urlCart) {
+                try { cart = JSON.parse(decodeURIComponent(urlCart)); } catch(e) {}
+            }
+            if (!cart || cart.length === 0) {
+                try {
+                    const stored = localStorage.getItem('spnc_cart');
+                    if (stored) cart = JSON.parse(stored);
+                } catch(e) {}
+            }
+
+            if (!cart || cart.length === 0) {
+                alert('Няма продукти в кошницата!');
+                return;
+            }
+
+            // Get customer data
+            const customer = {
+                name: form.querySelector('input[name="customer-name"]').value,
+                phone: form.querySelector('input[name="customer-phone"]').value,
+                address: form.querySelector('input[name="customer-address"]').value,
+                courier: form.querySelector('select[name="customer-courier"]').value
+            };
+
+            // Calculate total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            // Send order to server
+            try {
+                const response = await fetch('/api/order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        customer: customer,
+                        items: cart,
+                        total: total
+                    })
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('Поръчката е приета! Ще се свържем с вас скоро.');
+                    localStorage.clear();
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Грешка: ' + result.error);
+                }
+            } catch (e) {
+                alert('Грешка при изпращане на поръчката: ' + e.message);
+            }
+        }
+    </script>
+</body>
+</html>

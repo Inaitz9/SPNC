@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>EFI продукти — SPNC Systems</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<style>
+		.hero-bg { background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1586953208448-b95a79798f07?q=80&w=2070') center/cover no-repeat; }
+		.cmyk-cyan { color: #00aaff; }
+		.filter-btn {
+			transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+			box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+			min-width: 10rem;
+		}
+		.filter-btn:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 16px 28px rgba(15, 23, 42, 0.12);
+		}
+		.filter-btn.active,
+		.filter-btn.active:hover {
+			background-color: #0ea5e9;
+			color: #ffffff;
+			border-color: #0ea5e9;
+			box-shadow: 0 18px 35px rgba(14, 165, 233, 0.22);
+		}
+		.printer-model-grid {
+			display: grid;
+			grid-template-columns: repeat(1, minmax(0, 1fr));
+			gap: 0.75rem;
+		}
+		.printer-model-btn {
+			min-width: 0;
+			width: 100%;
+			min-height: 3rem;
+			padding: 0.75rem 1rem;
+			font-size: 0.78rem;
+			line-height: 1.2;
+			letter-spacing: 0.01em;
+			text-wrap: balance;
+		}
+		@media (min-width: 640px) {
+			.printer-model-grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+		@media (min-width: 1280px) {
+			.printer-model-grid {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+			}
+		}
+	</style>
+</head>
+<body class="bg-white text-zinc-800 font-sans">
+	<header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+		<div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between gap-3">
+			<a href="index.html" class="text-xl font-bold tracking-tight text-zinc-900 hover:text-cyan-600 transition">SPNC <span class="text-cyan-600">Systems</span></a>
+			<div class="flex items-center gap-3">
+				<button onclick="toggleCart()" class="relative flex items-center gap-2 hover:text-cyan-600 transition">
+					<i class="fas fa-shopping-cart text-xl"></i>
+					<span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
+				</button>
+				<a href="index.html" class="flex items-center gap-2 text-sm font-semibold text-white bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-full transition shadow-sm">
+					<i class="fas fa-house text-xs"></i> Начало
+				</a>
+			</div>
+		</div>
+	</header>
+
+	<section class="hero-bg h-72 flex items-center">
+		<div class="max-w-7xl mx-auto px-6">
+			<h1 class="text-4xl md:text-5xl font-bold text-zinc-900">EFI Vutek Chips</h1>
+		</div>
+	</section>
+
+	<main class="py-20 bg-zinc-50">
+		<div class="max-w-7xl mx-auto px-6">
+			<div class="grid gap-10 lg:grid-cols-[1.65fr_1fr] items-start">
+				<div>
+					<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
+						<div>
+							<h2 class="text-3xl font-bold">EFI Vutek UV Printer RFID Ink Chips</h2>
+							<p class="text-zinc-600 mt-2">RFID ink chips for EFI Vutek UV printers allow you to use compatible third-party UV inks with flexible cost and quality control.</p>
+						</div>
+					</div>
+
+					<div class="mt-8">
+						<h3 class="text-lg font-bold mb-3">Printer Model</h3>
+						<div id="printer-model-buttons" class="printer-model-grid mt-8"></div>
+					</div>
+
+					<div class="mt-8">
+						<h3 class="text-lg font-bold mb-3">Color</h3>
+						<div class="flex flex-wrap gap-3 mb-6">
+							<button id="btn-C" onclick="toggleFilter('color', 'C', 'btn-C')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">C</button>
+							<button id="btn-M" onclick="toggleFilter('color', 'M', 'btn-M')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">M</button>
+							<button id="btn-Y" onclick="toggleFilter('color', 'Y', 'btn-Y')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">Y</button>
+							<button id="btn-K" onclick="toggleFilter('color', 'K', 'btn-K')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">K</button>
+							<button id="btn-W" onclick="toggleFilter('color', 'W', 'btn-W')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">W</button>
+							<button id="btn-Clear" onclick="toggleFilter('color', 'Clear', 'btn-Clear')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">Clear</button>
+							<button id="btn-LY" onclick="toggleFilter('color', 'LY', 'btn-LY')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">LY</button>
+							<button id="btn-LK" onclick="toggleFilter('color', 'LK', 'btn-LK')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">LK</button>
+							<button id="btn-V" onclick="toggleFilter('color', 'V', 'btn-V')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">V</button>
+							<button id="btn-LM" onclick="toggleFilter('color', 'LM', 'btn-LM')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">LM</button>
+							<button id="btn-LC" onclick="toggleFilter('color', 'LC', 'btn-LC')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">LC</button>
+						</div>
+					</div>
+
+					<div class="mt-8">
+						<h3 class="text-lg font-bold mb-3">Volume</h3>
+						<div class="flex flex-wrap gap-3 mb-6">
+							<button id="btn-1L" onclick="toggleFilter('volume', '1L', 'btn-1L')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">1L</button>
+							<button id="btn-2L" onclick="toggleFilter('volume', '2L', 'btn-2L')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">2L</button>
+							<button id="btn-3L" onclick="toggleFilter('volume', '3L', 'btn-3L')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">3L</button>
+							<button id="btn-5L" onclick="toggleFilter('volume', '5L', 'btn-5L')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">5L</button>
+							<button id="btn-10L" onclick="toggleFilter('volume', '10L', 'btn-10L')" class="filter-btn cursor-pointer rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">10L</button>
+						</div>
+					</div>
+
+					<div class="mt-8 p-6 bg-cyan-50 rounded-3xl border border-cyan-200">
+						<h3 class="text-lg font-bold mb-4">Selected Options</h3>
+						<div class="space-y-3 mb-6">
+							<div id="selected-display" class="text-sm text-zinc-700">
+								<p class="text-zinc-500">No selections yet</p>
+							</div>
+						</div>
+						<button onclick="addSelectedToCart()" class="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-2xl text-lg font-semibold transition">Add to Cart</button>
+					</div>
+
+					<div id="products-grid" class="space-y-4"></div>
+				</div>
+
+				<aside class="sticky top-24 rounded-3xl overflow-hidden bg-white border border-gray-200 shadow-xl">
+					<div class="h-96 bg-[url('https://images.unsplash.com/photo-1586953208448-b95a79798f07?q=80&w=2070')] bg-cover bg-center"></div>
+					<div class="p-8">
+						<h2 class="text-3xl font-bold mb-3">EFI Vutek</h2>
+						<p class="text-zinc-600">✔ Бърз избор на продукти</p>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</main>
+
+	<div id="cart-modal" class="hidden fixed inset-0 bg-black/70 z-[100] flex items-center justify-center">
+		<div class="bg-white w-full max-w-2xl mx-4 rounded-3xl shadow-2xl max-h-[90vh] overflow-hidden flex flex-col">
+			<div class="p-6 border-b flex justify-between items-center">
+				<h3 class="text-2xl font-bold">Вашата кошница</h3>
+				<button onclick="toggleCart()" class="text-3xl leading-none hover:text-red-500">x</button>
+			</div>
+			<div id="cart-items" class="flex-1 p-6 overflow-auto"></div>
+			<div class="p-6 border-t">
+				<div class="flex justify-between text-xl font-semibold mb-6">
+					<span>Общо:</span>
+					<span id="cart-total">0 лв.</span>
+				</div>
+				<button onclick="checkout()" class="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-2xl text-lg font-semibold transition">Продължи към плащане</button>
+			</div>
+		</div>
+	</div>
+
+	<footer class="bg-white py-12 border-t">
+		<div class="max-w-7xl mx-auto px-6 text-center text-sm text-zinc-500">© 2026 SPNC Systems</div>
+	</footer>
+
+	<script>
+		let cart = [];
+		let brandProducts = [];
+		let selectedFilters = {
+			printerModel: [],
+			color: [],
+			volume: []
+		};
+
+		let MODEL_OPTIONS = {};
+
+		const EFI_BRANDS = ['EFI', 'EFI Vutek', 'Vutek'];
+		const EFI_MODEL_PATTERN = /efi|vutek/i;
+		const EFI_PRINTER_MODELS = [
+			'H1625-LED',
+			'H3225-LED',
+			'HS125-PRO',
+			'HS100-PRO',
+			'H2000-PRO',
+			'H3',
+			'H5',
+			'LX3-PRO',
+			'HSR-PRO',
+			'GS3LX-PRO',
+			'GS3250LXR-PRO',
+			'GS5250LXR-PRO',
+			'GS2000LX-ULTRADROP',
+			'GS3250LX-ULTRADROP',
+			'GS5500LXR-ULTRADROP',
+			'GS3250LX-PRO',
+			'GS3250R',
+			'GS2000-PRO',
+			'GS2000LX-PRO',
+			'GS3250-PRO',
+			'QS3-PRO',
+			'GS5000R',
+			'GS3200'
+		];
+		const EFI_MODEL_OPTIONS = {
+			'H1625-LED': {
+				colors: ['C', 'M', 'Y', 'K', 'W'],
+				volumes: ['5L']
+			},
+			'H3225-LED': {
+				colors: ['C', 'M', 'Y', 'K', 'W'],
+				volumes: ['5L']
+			},
+			'HS125-PRO': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'W', 'Clear'],
+				volumes: ['10L']
+			},
+			'HS100-PRO': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'W', 'Clear'],
+				volumes: ['10L']
+			},
+			'H2000-PRO': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'H3': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'H5': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'LX3-PRO': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'HSR-PRO': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'GS3LX-PRO': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'GS3250LXR-PRO': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'GS5250LXR-PRO': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'GS2000LX-ULTRADROP': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'GS3250LX-ULTRADROP': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'GS5500LXR-ULTRADROP': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'GS3250LX-PRO': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'GS3250R': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'GS2000-PRO': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'GS2000LX-PRO': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'GS3250-PRO': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'QS3-PRO': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'GS5000R': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			},
+			'GS3200': {
+				colors: ['C', 'M', 'Y', 'K', 'LC', 'LM', 'LY', 'LK', 'W', 'Clear'],
+				volumes: ['5L']
+			}
+		};
+		const ALL_COLORS = ['C','M','Y','K','W','Clear','LY','LK','V','LC','LM'];
+		const ALL_VOLUMES = ['1L','2L','3L','5L','10L'];
+
+		async function loadProducts() {
+			try {
+				const response = await fetch('products.json');
+				if (!response.ok) throw new Error('HTTP ' + response.status);
+				const products = await response.json();
+				brandProducts = products.filter(p => EFI_BRANDS.includes(p.brand));
+				updateSelectedDisplay();
+			} catch (err) {
+				console.error('Product load failed:', err);
+				document.getElementById('products-grid').innerHTML = '<p class="text-red-500">Грешка при зареждане на продуктите.</p>';
+			}
+		}
+
+		async function loadModelOptions() {
+			try {
+				const res = await fetch('/api/model-options');
+				if (!res.ok) throw new Error('HTTP ' + res.status);
+				const data = await res.json();
+				// Merge: hardcoded EFI_MODEL_OPTIONS as baseline, server data takes priority
+				MODEL_OPTIONS = {
+					...EFI_MODEL_OPTIONS,
+					...((data && typeof data === 'object' && !Array.isArray(data)) ? data : {})
+				};
+			} catch (e) {
+				console.error('Could not load model options:', e);
+				MODEL_OPTIONS = { ...EFI_MODEL_OPTIONS };
+			}
+		}
+
+		function renderPrinterModelButtons() {
+			const container = document.getElementById('printer-model-buttons');
+			const dynamicModels = Object.keys(MODEL_OPTIONS).filter(function(m) {
+				const d = MODEL_OPTIONS[m];
+				if (d && d.brand) return d.brand === 'efi';
+				// Fallback for brandless entries: EFI pattern/list, not Canon/Fuji
+				return (EFI_MODEL_PATTERN.test(m) || EFI_PRINTER_MODELS.includes(m))
+					&& !/^GT\/XT/i.test(m) && !/fuji|fujifilm|acuity/i.test(m);
+			});
+			const models = dynamicModels.length > 0 ? dynamicModels : EFI_PRINTER_MODELS;
+
+			if (selectedFilters.printerModel[0] && !models.includes(selectedFilters.printerModel[0])) {
+				selectedFilters.printerModel = [];
+			}
+
+			if (models.length === 0) {
+				container.innerHTML = '<p class="text-zinc-500 text-sm">Няма налични модели.</p>';
+				updateDependentOptions();
+				return;
+			}
+
+			container.innerHTML = models.map(model => `
+				<button id="btn-${model}" onclick="toggleFilter('printerModel', '${model.replace(/'/g, "\\'")}', 'btn-${model}')" class="filter-btn printer-model-btn cursor-pointer rounded-2xl border border-gray-200 bg-white font-semibold text-zinc-700 hover:border-cyan-600 hover:bg-cyan-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-200 transition duration-200 ease-out">${model}</button>
+			`).join('');
+		}
+
+		function updateDependentOptions() {
+			const selectedModel = selectedFilters.printerModel[0];
+			const opts = (selectedModel && MODEL_OPTIONS[selectedModel]) ? MODEL_OPTIONS[selectedModel] : null;
+			const allowedColors = opts?.colors || ALL_COLORS;
+			const allowedVolumes = opts?.volumes || ALL_VOLUMES;
+
+			ALL_COLORS.forEach(v => {
+				const btn = document.getElementById('btn-' + v);
+				if (btn) btn.classList.toggle('hidden', opts !== null && !allowedColors.includes(v));
+			});
+			ALL_VOLUMES.forEach(v => {
+				const btn = document.getElementById('btn-' + v);
+				if (btn) btn.classList.toggle('hidden', opts !== null && !allowedVolumes.includes(v));
+			});
+
+			if (opts) {
+				[['color', allowedColors], ['volume', allowedVolumes]].forEach(([cat, valid]) => {
+					selectedFilters[cat] = selectedFilters[cat].filter(v => {
+						if (!valid.includes(v)) {
+							const b = document.getElementById('btn-' + v);
+							if (b) b.classList.remove('active', 'bg-cyan-600', 'text-white', 'border-cyan-600');
+							return false;
+						}
+						return true;
+					});
+				});
+
+				[['volume', allowedVolumes]].forEach(([cat, valid]) => {
+					if (valid.length === 1 && selectedFilters[cat].length === 0) {
+						const only = valid[0];
+						selectedFilters[cat] = [only];
+						const b = document.getElementById('btn-' + only);
+						if (b) b.classList.add('active', 'bg-cyan-600', 'text-white', 'border-cyan-600');
+					}
+				});
+			}
+
+			updateSelectedDisplay();
+		}
+
+		function toggleFilter(category, value, btnId) {
+			const btn = document.getElementById(btnId);
+			const current = selectedFilters[category][0];
+
+			if (current && current !== value) {
+				const prevBtn = document.getElementById('btn-' + current);
+				if (prevBtn) prevBtn.classList.remove('active', 'bg-cyan-600', 'text-white', 'border-cyan-600');
+			}
+
+			if (current === value) {
+				selectedFilters[category] = [];
+				if (btn) btn.classList.remove('active', 'bg-cyan-600', 'text-white', 'border-cyan-600');
+			} else {
+				selectedFilters[category] = [value];
+				if (btn) btn.classList.add('active', 'bg-cyan-600', 'text-white', 'border-cyan-600');
+			}
+
+			if (category === 'printerModel') {
+				updateDependentOptions();
+			}
+
+			updateSelectedDisplay();
+		}
+
+		function updateSelectedDisplay() {
+			const display = document.getElementById('selected-display');
+			const selections = [];
+
+			if (selectedFilters.printerModel.length > 0) {
+				selections.push(`<strong>Printer Model:</strong> ${selectedFilters.printerModel.join(', ')}`);
+			}
+			if (selectedFilters.color.length > 0) {
+				selections.push(`<strong>Color:</strong> ${selectedFilters.color.join(', ')}`);
+			}
+			if (selectedFilters.volume.length > 0) {
+				selections.push(`<strong>Volume:</strong> ${selectedFilters.volume.join(', ')}`);
+			}
+
+			if (selections.length === 0) {
+				display.innerHTML = '<p class="text-zinc-500">No selections yet</p>';
+			} else {
+				display.innerHTML = selections.map(s => `<p>${s}</p>`).join('');
+			}
+
+			applyFilters();
+		}
+
+		function renderProducts(products) {
+			const grid = document.getElementById('products-grid');
+			grid.innerHTML = '';
+			if (products.length === 0) {
+				grid.innerHTML = '<p class="text-center text-zinc-500">Няма продукти за този филтър.</p>';
+				return;
+			}
+
+			products.forEach(product => {
+				const isOutOfStock = !product.stock || product.stock <= 0;
+				const btnText = isOutOfStock ? 'Няма на склад' : 'Добави в кошница';
+				const disabledClass = isOutOfStock ? 'bg-gray-400 cursor-not-allowed' : 'bg-cyan-600 hover:bg-cyan-700';
+
+				const item = document.createElement('div');
+				item.className = 'group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-3xl border border-gray-200 bg-white p-5 shadow-sm hover:-translate-y-0.5 hover:scale-[1.01] hover:border-cyan-300 hover:shadow-lg transition-transform duration-300';
+				item.innerHTML = `
+					<div class="space-y-2">
+						<div class="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.3em] text-cyan-600 font-semibold">
+							<span>${product.category}</span>
+							<span class="text-zinc-400">•</span>
+							<span>${product.stock} бр.</span>
+						</div>
+						<h3 class="text-xl font-semibold">${product.name}</h3>
+						<p class="text-zinc-600 text-sm">${product.description}</p>
+					</div>
+					<div class="flex flex-col items-start sm:items-end gap-3">
+						<span class="text-2xl font-bold">${product.price} <span class="text-base font-medium text-zinc-500">лв.</span></span>
+						<button onclick="addToCart(this)" data-id="${product.id}" class="rounded-full px-5 py-3 text-sm font-semibold text-white ${disabledClass}" ${isOutOfStock ? 'disabled' : ''}>${btnText}</button>
+					</div>
+				`;
+				grid.appendChild(item);
+			});
+		}
+
+		function applyFilters() {
+			let filtered = brandProducts;
+
+			if (selectedFilters.printerModel.length > 0) {
+				filtered = filtered.filter(p => selectedFilters.printerModel.some(model => p.model && p.model.includes(model)));
+			}
+
+			if (selectedFilters.color.length > 0) {
+				filtered = filtered.filter(p => selectedFilters.color.includes(p.color));
+			}
+
+			if (selectedFilters.volume.length > 0) {
+				filtered = filtered.filter(p => selectedFilters.volume.includes(p.volume));
+			}
+
+			renderProducts(filtered);
+		}
+
+		function addSelectedToCart() {
+			if (selectedFilters.printerModel.length === 0 &&
+					selectedFilters.color.length === 0 && selectedFilters.volume.length === 0) {
+				alert('Please select at least one option before adding to cart');
+				return;
+			}
+
+			const itemName = [
+				selectedFilters.printerModel.join(', '),
+				selectedFilters.color.join(', '),
+				selectedFilters.volume.join(', ')
+			].filter(s => s).join(' - ');
+
+			const cartItem = {
+				id: 'custom-' + Date.now(),
+				name: itemName,
+				price: 50,
+				quantity: 1,
+				selections: {
+					printerModel: [...selectedFilters.printerModel],
+					color: [...selectedFilters.color],
+					volume: [...selectedFilters.volume]
+				}
+			};
+
+			cart.push(cartItem);
+			localStorage.setItem('spnc_cart', JSON.stringify(cart));
+			updateCartCount();
+			alert('Added to cart: ' + itemName);
+		}
+
+		function addToCart(btn) {
+			const id = btn.dataset.id;
+			const product = brandProducts.find(p => p.id === id);
+			if (!product) return;
+			const existing = cart.find(item => item.id === id);
+			if (existing) existing.quantity += 1;
+			else cart.push({ id: product.id, name: product.name, price: product.price, quantity: 1 });
+			localStorage.setItem('spnc_cart', JSON.stringify(cart));
+			updateCartCount();
+			btn.textContent = 'Добавено ✓';
+			setTimeout(() => { btn.textContent = 'Добави в кошница'; }, 1500);
+		}
+
+		function updateCartCount() {
+			const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+			document.getElementById('cart-count').textContent = count;
+		}
+
+		function toggleCart() {
+			document.getElementById('cart-modal').classList.toggle('hidden');
+			renderCart();
+		}
+
+		function renderCart() {
+			const container = document.getElementById('cart-items');
+			container.innerHTML = '';
+			if (cart.length === 0) {
+				container.innerHTML = '<p class="text-center text-zinc-500 py-12">Кошницата е празна</p>';
+				document.getElementById('cart-total').textContent = '0 лв.';
+				return;
+			}
+
+			let total = 0;
+			cart.forEach((item, index) => {
+				const itemTotal = item.price * item.quantity;
+				total += itemTotal;
+				const div = document.createElement('div');
+				div.className = 'flex gap-4 border-b pb-6 mb-6 last:border-0 last:mb-0';
+				div.innerHTML = `
+					<div class="flex-1">
+						<h4 class="font-medium">${item.name}</h4>
+						<p class="text-sm text-zinc-500">${item.price} лв. × ${item.quantity}</p>
+					</div>
+					<div class="text-right">
+						<p class="font-semibold">${itemTotal} лв.</p>
+						<button onclick="removeFromCart(${index})" class="text-red-500 text-sm mt-2 hover:underline">Премахни</button>
+					</div>
+				`;
+				container.appendChild(div);
+			});
+			document.getElementById('cart-total').textContent = total + ' лв.';
+		}
+
+		function removeFromCart(index) {
+			cart.splice(index, 1);
+			localStorage.setItem('spnc_cart', JSON.stringify(cart));
+			updateCartCount();
+			renderCart();
+		}
+
+		function checkout() {
+			if (cart.length === 0) return;
+			localStorage.setItem('spnc_cart', JSON.stringify(cart));
+			window.location.href = 'checkout.html';
+		}
+
+		window.onload = async () => {
+			const saved = localStorage.getItem('spnc_cart');
+			if (saved) cart = JSON.parse(saved);
+			updateCartCount();
+			await loadModelOptions();
+			renderPrinterModelButtons();
+			loadProducts();
+		};
+	</script>
+</body>
+</html>
