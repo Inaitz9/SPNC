@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5500;
 const PRODUCTS_FILE = path.join(__dirname, 'products.json');
 const ORDERS_FILE = path.join(__dirname, 'orders.json');
 const USERS_FILE = path.join(__dirname, 'users.json');
@@ -581,7 +581,8 @@ const server = http.createServer((req, res) => {
     res.end('Not found');
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running at http://localhost:${PORT}`);
     console.log(`Open http://localhost:${PORT}/index.html to view the shop`);
+});
 });
